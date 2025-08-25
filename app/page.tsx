@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden max-w-full">
       <FloatingButton />
       <Navbar />
       <Hero />
