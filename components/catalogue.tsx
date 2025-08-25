@@ -49,7 +49,7 @@ export default function Catalogue() {
         </div>
 
         {/* Grid responsif untuk daftar paket */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-0 md:px-20">
           {isLoading ? (
             // Loading skeleton
             Array.from({ length: 3 }).map((_, index) => (
@@ -57,13 +57,13 @@ export default function Catalogue() {
                 key={index}
                 className="card bg-base-100 shadow-xl animate-pulse flex flex-col h-full"
               >
-                <div className="h-48 bg-gray-200 rounded-t-xl w-full"></div>
-                <div className="card-body p-4 flex-grow">
-                  <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
+                <div className="h-40 sm:h-48 bg-gray-200 rounded-t-xl w-full"></div>
+                <div className="card-body p-3 sm:p-4 flex-grow">
+                  <div className="h-4 sm:h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded w-full mb-2"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
                   <div className="card-actions justify-end mt-auto">
-                    <div className="h-10 bg-gray-200 rounded w-28"></div>
+                    <div className="h-8 sm:h-10 bg-gray-200 rounded w-20 sm:w-28"></div>
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function Catalogue() {
                 key={pkg.id}
                 className="card bg-base-100 shadow-xl flex flex-col h-full"
               >
-                <figure className="relative w-full h-48">
+                <figure className="relative w-full h-40 sm:h-48">
                   <Image
                     src={
                       pkg.mainImageUrl &&
@@ -85,7 +85,7 @@ export default function Catalogue() {
                               ? pkg.mainImageUrl
                               : `/${pkg.mainImageUrl}`
                           }`
-                        : "/images/placeholder.jpg" // Fallback image jika mainImageUrl tidak valid atau kosong
+                        : "/images/placeholder.jpg"
                     }
                     alt={pkg.title || "Paket Wisata"}
                     fill
@@ -93,24 +93,24 @@ export default function Catalogue() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </figure>
-                <div className="card-body p-4 flex-grow">
-                  <h2 className="card-title text-xl font-semibold mb-2">
+                <div className="card-body p-3 sm:p-4 flex-grow">
+                  <h2 className="card-title text-base sm:text-xl font-semibold mb-2 line-clamp-2 leading-tight">
                     {pkg.title}
                   </h2>
-                  <p className="text-gray-700 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-700 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                     {pkg.shortDescription}
                   </p>
-                  <div className="flex justify-between items-center mt-auto">
-                    <span className="text-lg font-bold text-amber-800">
+                  <div className="flex justify-between items-center mt-auto mb-2 sm:mb-0">
+                    <span className="text-sm sm:text-lg font-bold text-amber-800 truncate mr-2">
                       {formatPrice(pkg.price)}
                     </span>
-                    <span className="badge badge-outline text-amber-800 border-amber-800">
+                    <span className="badge badge-outline text-amber-800 border-amber-800 text-xs sm:text-sm whitespace-nowrap">
                       {pkg.duration}
                     </span>
                   </div>
-                  <div className="card-actions justify-end mt-4">
+                  <div className="card-actions justify-end mt-2 sm:mt-4">
                     <Link href={`/paket/${pkg.id}`}>
-                      <button className="btn btn-warning text-white">
+                      <button className="btn btn-warning text-white text-xs sm:text-sm w-full sm:w-auto px-3 sm:px-6">
                         Lihat Detail
                       </button>
                     </Link>
@@ -120,7 +120,7 @@ export default function Catalogue() {
             ))
           ) : (
             <div className="text-center py-8 w-full col-span-full">
-              <p className="text-lg text-gray-500">
+              <p className="text-base sm:text-lg text-gray-500">
                 Belum ada paket wisata tersedia.
               </p>
             </div>

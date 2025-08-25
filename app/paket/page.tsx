@@ -111,7 +111,7 @@ export default async function PaketPage({ searchParams }: PaketPageProps) {
 
           {/* Package Grid */}
           {packages.length > 0 ? (
-            <div className="grid grid-cols-2  lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {packages.map((pkg: TourPackage) => (
                 <Card
                   key={pkg.id}
@@ -127,30 +127,29 @@ export default async function PaketPage({ searchParams }: PaketPageProps) {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-amber-800 text-white">
+                    <div className="absolute top-2 left-2 sm:top-4 sm:left-4">
+                      <Badge className="bg-amber-800 text-white text-xs sm:text-sm">
                         {pkg.category?.name || ""}
                       </Badge>
                     </div>
                   </Link>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
+                  <CardContent className="p-3 sm:p-6">
+                    <h3 className="text-base sm:text-xl font-semibold text-gray-900 mb-2 line-clamp-2 leading-tight">
                       {pkg.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                       {pkg.shortDescription}
                     </p>
-                    <div className="flex justify-between items-center mb-4">
-                      <div className="text-2xl font-bold text-amber-800">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4">
+                      <div className="text-lg sm:text-2xl font-bold text-amber-800 truncate mr-2">
                         {formatPrice(pkg.price)}
                       </div>
-                      {/* Contoh tambahan: durasi atau rating */}
-                      <div className="text-sm text-gray-500">
+                      <div className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
                         {pkg.duration} hari
                       </div>
                     </div>
                     <Link href={`/paket/${pkg.id}`}>
-                      <button className="btn btn-warning text-white w-full">
+                      <button className="btn btn-warning text-white w-full text-xs sm:text-sm py-2 sm:py-2.5">
                         Lihat Detail
                       </button>
                     </Link>

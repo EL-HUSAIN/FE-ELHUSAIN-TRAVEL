@@ -67,7 +67,7 @@ async function PostGrid({ params }: { params: URLSearchParams }) {
   }
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
       {posts.map((post: Post) => (
         <Card
           key={post.id}
@@ -87,26 +87,28 @@ async function PostGrid({ params }: { params: URLSearchParams }) {
               fill
               className="object-cover"
             />
-            <div className="absolute top-4 left-4">
-              <Badge className="bg-amber-800 text-white">{post.type}</Badge>
+            <div className="absolute top-2 left-2 sm:top-4 sm:left-4">
+              <Badge className="bg-amber-800 text-white text-xs sm:text-sm">
+                {post.type}
+              </Badge>
             </div>
           </Link>
-          <CardContent className="p-6 flex flex-col flex-grow">
+          <CardContent className="p-3 sm:p-6 flex flex-col flex-grow">
             <div className="flex-grow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
+              <h3 className="text-base sm:text-xl font-semibold text-gray-900 mb-2 line-clamp-2 leading-tight">
                 {post.title}
               </h3>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                 {post.body}
               </p>
-              <div className="flex items-center gap-1 text-sm text-gray-500 mb-4">
-                <Calendar className="h-4 w-4" />
-                <span>{formatDate(post.createdAt)}</span>
+              <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">
+                <Calendar className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                <span className="truncate">{formatDate(post.createdAt)}</span>
               </div>
             </div>
             <div className="mt-auto">
               <Link href={`/artikel/${post.slug}`}>
-                <Button className="w-full bg-amber-800 hover:bg-amber-700">
+                <Button className="w-full bg-amber-800 hover:bg-amber-700 text-xs sm:text-sm py-2 sm:py-2.5">
                   Baca Selengkapnya
                 </Button>
               </Link>
