@@ -38,64 +38,67 @@ export default function Article() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:px-20">
-          {isLoading
-            ? Array.from({ length: 3 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="card bg-base-100 shadow-xl flex flex-col h-full animate-pulse"
-                >
-                  <div className="h-40 bg-gray-200 rounded-t"></div>
-                  <div className="card-body">
-                    <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded w-full mb-1"></div>
-                    <div className="h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
-                    <div className="h-10 bg-gray-200 rounded w-full"></div>
-                  </div>
-                </div>
-              ))
-            : posts.map((article: any) => (
-                <div
-                  key={article.id}
-                  className="card bg-base-100 shadow-xl flex flex-col h-full"
-                >
-                  <figure>
-                    <Image
-                      src={
-                        article.imageUrls?.[0]
-                          ? `${IMAGE_BASE_URL}${article.imageUrls[0]}`
-                          : "/images/placeholder.jpg"
-                      }
-                      alt={article.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-40 object-cover"
-                    />
-                  </figure>
-                  <div className="card-body">
-                    <span className="badge badge-xs badge-warning">
-                      Artikel
-                    </span>
-                    <h2 className="text-xl font-bold mt-2">{article.title}</h2>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {truncateText(article.body, 120)}
-                    </p>
-                    <div className="flex justify-between items-center mt-2">
-                      <span className="text-xs text-gray-500">
-                        {formatDate(article.createdAt)}
-                      </span>
-                    </div>
-                    <div className="mt-4">
-                      <Link href={`/artikel/${article.slug}`}>
-                        <button className="btn btn-warning btn-block text-white">
-                          Baca Selengkapnya
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-0 md:px-20">
+  {isLoading
+    ? Array.from({ length: 3 }).map((_, index) => (
+        <div
+          key={index}
+          className="card bg-base-100 shadow-xl flex flex-col h-full animate-pulse"
+        >
+          <div className="h-32 sm:h-40 bg-gray-200 rounded-t"></div>
+          <div className="card-body p-3 sm:p-4">
+            <div className="h-4 sm:h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+            <div className="h-3 sm:h-4 bg-gray-200 rounded w-full mb-1"></div>
+            <div className="h-3 sm:h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
+            <div className="h-8 sm:h-10 bg-gray-200 rounded w-full"></div>
+          </div>
         </div>
+      ))
+    : posts.map((article: any) => (
+        <div
+          key={article.id}
+          className="card bg-base-100 shadow-xl flex flex-col h-full"
+        >
+          <figure>
+            <Image
+              src={
+                article.imageUrls?.[0]
+                  ? `${IMAGE_BASE_URL}${article.imageUrls[0]}`
+                  : "/images/placeholder.jpg"
+              }
+              alt={article.title}
+              width={300}
+              height={200}
+              className="w-full h-32 sm:h-40 object-cover"
+            />
+          </figure>
+          <div className="card-body p-3 sm:p-4">
+            <span className="badge badge-xs badge-warning text-xs">
+              Artikel
+            </span>
+            <h2 className="text-base sm:text-xl font-bold mt-2 line-clamp-2 leading-tight">
+              {article.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1 line-clamp-2 sm:line-clamp-3">
+              {truncateText(article.body, 100)}
+            </p>
+            <div className="flex justify-between items-center mt-2">
+              <span className="text-xs text-gray-500 truncate">
+                {formatDate(article.createdAt)}
+              </span>
+            </div>
+            <div className="mt-3 sm:mt-4">
+              <Link href={`/artikel/${article.slug}`}>
+                <button className="btn btn-warning btn-block text-white text-xs sm:text-sm py-2 sm:py-2.5">
+                  Baca Selengkapnya
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
+</div>
+
       </div>
     </div>
   );
