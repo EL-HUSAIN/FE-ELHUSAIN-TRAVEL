@@ -30,8 +30,8 @@ export default function Testimonials() {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid items-center gap-4 xl:grid-cols-5 px-20">
+      <div className="container px-6 py-12 mx-auto">
+        <div className="grid items-center gap-4 xl:grid-cols-5">
           <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
             <h2 className="text-4xl font-bold text-gray-800">
               Kata Mereka yang Puas dengan El.Husain Travel
