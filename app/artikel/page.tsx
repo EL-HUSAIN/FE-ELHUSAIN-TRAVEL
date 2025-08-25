@@ -67,7 +67,7 @@ async function PostGrid({ params }: { params: URLSearchParams }) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
       {posts.map((post: Post) => (
         <Card
           key={post.id}
