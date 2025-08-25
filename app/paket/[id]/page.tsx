@@ -30,7 +30,7 @@ import { toast } from "sonner";
 import PublicLayout from "@/components/public-layout";
 
 const IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
 
 export default function PackageDetailPage() {
   const params = useParams();

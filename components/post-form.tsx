@@ -56,7 +56,7 @@ export function PostForm({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const IMAGE_PREVIEW =
-    process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
+    process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
 
   useEffect(() => {
     if (editPost) {

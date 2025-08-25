@@ -40,7 +40,7 @@ export function useAdmins() {
   const { admin } = useAuth();
   const queryClient = useQueryClient(); // Dapatkan instance query client
   const API_HOST =
-    process.env.NEXT_PUBLIC_API_HOST || "http://localhost:3000/api";
+    process.env.NEXT_PUBLIC_API_HOST || "https://api-travel.elhusain.travel/api";
 
   // --- Fungsi Fetching (untuk useQuery) ---
   const fetchAllAdmins = async (): Promise<AdminUser[]> => {

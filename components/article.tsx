@@ -2,19 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePosts } from "@/hooks/use-article"; // import hook
+import { usePosts } from "@/hooks/use-article";
 
-interface Article {
-  id: number;
-  title: string;
-  excerpt: string;
-  imageUrl: string;
-  date: string;
-  author: string;
-}
+const IMAGE_BASE_URL =
+  process.env.NEXT_PUBLIC_STORAGE_URL ||
+  "https://api-travel.elhusain.travel";
 
 export default function Article() {
-  // Use custom hook to fetch posts (limit 3)
   const { posts, isLoading } = usePosts({ limit: 3 });
 
   const formatDate = (dateString: string) => {
@@ -23,6 +17,14 @@ export default function Article() {
       month: "long",
       day: "numeric",
     });
+  };
+
+  // Fungsi truncate body supaya tidak terlalu panjang
+  const truncateText = (text: string, maxLength: number) => {
+    if (!text) return "";
+    return text.length > maxLength
+      ? text.substring(0, maxLength) + "..."
+      : text;
   };
 
   return (
@@ -36,10 +38,10 @@ export default function Article() {
             </button>
           </Link>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:px-20">
           {isLoading
-            ? // Loading skeleton
-              Array.from({ length: 3 }).map((_, index) => (
+            ? Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
                   className="card bg-base-100 shadow-xl flex flex-col h-full animate-pulse"
@@ -60,7 +62,11 @@ export default function Article() {
                 >
                   <figure>
                     <Image
-                      src={article.imageUrls?.[0] || "/placeholder.svg"}
+                      src={
+                        article.imageUrls?.[0]
+                          ? `${IMAGE_BASE_URL}${article.imageUrls[0]}`
+                          : "/images/placeholder.jpg"
+                      }
                       alt={article.title}
                       width={300}
                       height={200}
@@ -72,17 +78,16 @@ export default function Article() {
                       Artikel
                     </span>
                     <h2 className="text-xl font-bold mt-2">{article.title}</h2>
-                    <p className="text-sm text-gray-600 mt-1">{article.body}</p>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {truncateText(article.body, 120)}
+                    </p>
                     <div className="flex justify-between items-center mt-2">
                       <span className="text-xs text-gray-500">
                         {formatDate(article.createdAt)}
                       </span>
-                      {/* <span className="text-xs text-gray-500">
-                        Oleh: {article.author || "Admin"}
-                      </span> */}
                     </div>
                     <div className="mt-4">
-                      <Link href={`/artikel/${article.id}`}>
+                      <Link href={`/artikel/${article.slug}`}>
                         <button className="btn btn-warning btn-block text-white">
                           Baca Selengkapnya
                         </button>

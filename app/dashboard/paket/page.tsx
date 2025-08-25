@@ -31,8 +31,8 @@ import DeletePackageButton from "@/components/dashboard/delete-package-button";
 import ImageWithFallback from "@/components/dashboard/image-with-fallback";
 
 const IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
-const API_HOST = process.env.API_HOST || "http://localhost:3000/api";
+  process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
+const API_HOST = process.env.API_HOST || "https://api-travel.elhusain.travel/api";
 
 interface DashboardPageProps {
   searchParams?: {

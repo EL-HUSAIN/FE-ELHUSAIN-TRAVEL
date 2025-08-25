@@ -44,7 +44,7 @@ export default function ImageManagementPage({
   } = usePackageImages(packageId);
 
   const IMAGE_BASE_URL =
-    process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
+    process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
 
   useEffect(() => {
     if (!isPackagesLoading && packages.length > 0) {

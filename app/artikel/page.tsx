@@ -14,7 +14,7 @@ import PostGridSkeleton from "@/components/artikel/post-grid-skeleton";
 import CtaButtons from "@/components/paket/cta-section"; // Bisa pakai CTA yang sama
 
 // ----- Definisikan Tipe & Helper -----
-const API_HOST = process.env.API_HOST || "http://localhost:3000/api";
+const API_HOST = process.env.API_HOST || "https://api-travel.elhusain.travel/api";
 const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_STORAGE_URL || "";
 
 interface Post {

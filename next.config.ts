@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "api-travel.elhusain.travel",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "source.unsplash.com", // Ganti dengan hostname yang sesuai
         port: "", // Biasanya kosong untuk https
         pathname: "/**", // Atau sesuai dengan path yang Anda butuhkan

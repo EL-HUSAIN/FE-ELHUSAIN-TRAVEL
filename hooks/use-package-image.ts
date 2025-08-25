@@ -28,7 +28,7 @@ export function usePackageImages(packageId?: number) {
   const { admin } = useAuth();
   const queryClient = useQueryClient();
   const API_HOST =
-    process.env.NEXT_PUBLIC_API_HOST || "http://localhost:3000/api"; // Pastikan ini benar
+    process.env.NEXT_PUBLIC_API_HOST || "https://api-travel.elhusain.travel/api"; // Pastikan ini benar
 
   // --- QUERY: Mengambil semua gambar untuk suatu paket ---
   const {

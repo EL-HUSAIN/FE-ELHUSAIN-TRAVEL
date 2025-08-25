@@ -14,7 +14,7 @@ export interface PackageDetailResponse {
 export function usePackageDetail(packageId: number | string) {
   const { admin } = useAuth();
   const API_HOST =
-    process.env.NEXT_PUBLIC_API_HOST || "http://localhost:3000/api";
+    process.env.NEXT_PUBLIC_API_HOST || "https://api-travel.elhusain.travel/api";
 
   const {
     data: packageDetail, // This 'packageDetail' will now correctly be of type TourPackage | undefined

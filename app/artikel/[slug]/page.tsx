@@ -21,7 +21,7 @@ export default function PostDetailPage() {
   const [isLiked, setIsLiked] = useState(false);
 
   const IMAGE_BASE_URL =
-    process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
+    process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
 
   // Menggunakan custom hook untuk fetch post by slug
   const { data: post, isLoading, error, isError } = usePostBySlug(slug);

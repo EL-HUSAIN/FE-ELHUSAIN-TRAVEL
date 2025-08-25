@@ -32,8 +32,8 @@ import PostsActions from "@/components/dashboard/posts-actions";
 import DeletePostButton from "@/components/dashboard/delete-post-button";
 
 const IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
-const API_HOST = process.env.API_HOST || "http://localhost:3000/api";
+  process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
+const API_HOST = process.env.API_HOST || "https://api-travel.elhusain.travel/api";
 
 // ----- Types -----
 interface Post {

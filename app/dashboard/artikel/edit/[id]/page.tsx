@@ -29,7 +29,7 @@ export default function EditPostPage() {
     const fetchPost = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/posts/${postId}`
+          `https://api-travel.elhusain.travel/api/posts/${postId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch post");

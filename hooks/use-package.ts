@@ -73,7 +73,7 @@ export function usePackages(options?: UsePackagesOptions) {
   const { admin } = useAuth();
   const queryClient = useQueryClient();
   const API_HOST =
-    process.env.NEXT_PUBLIC_API_HOST || "http://localhost:3000/api";
+    process.env.NEXT_PUBLIC_API_HOST || "https://api-travel.elhusain.travel/api";
 
   // --- QUERY UNTUK MENGAMBIL DAFTAR PAKET ---
   const {

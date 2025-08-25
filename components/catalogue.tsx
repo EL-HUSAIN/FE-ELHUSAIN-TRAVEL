@@ -8,7 +8,7 @@ import { usePackages } from "@/hooks/use-package";
 // Definisikan base URL untuk gambar dari backend Anda
 // Pastikan NEXT_PUBLIC_STORAGE_URL diatur di file .env.local Anda
 const IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000"; // Sesuaikan dengan port backend Anda
+  process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel"; // Sesuaikan dengan port backend Anda
 
 export default function Catalogue() {
   // Gunakan hook usePackages untuk mendapatkan data paket

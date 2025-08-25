@@ -25,7 +25,7 @@ interface PostResponse {
 
 // Axios instance (optional - untuk konfigurasi global)
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://api-travel.elhusain.travel/api",
   timeout: 10000,
 });
 

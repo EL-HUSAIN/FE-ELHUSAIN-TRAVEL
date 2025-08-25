@@ -10,8 +10,8 @@ import { TourPackage } from "@/hooks/use-package";
 import CtaButtons from "@/components/paket/cta-section";
 
 const IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_STORAGE_URL || "http://localhost:3000";
-const API_HOST = process.env.API_HOST || "http://localhost:3000/api";
+  process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
+const API_HOST = process.env.API_HOST || "https://api-travel.elhusain.travel/api";
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat("id-ID", {
