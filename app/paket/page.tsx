@@ -11,7 +11,8 @@ import CtaButtons from "@/components/paket/cta-section";
 
 const IMAGE_BASE_URL =
   process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
-const API_HOST = process.env.API_HOST || "https://api-travel.elhusain.travel/api";
+const API_HOST =
+  process.env.API_HOST || "https://api-travel.elhusain.travel/api";
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat("id-ID", {
@@ -110,7 +111,7 @@ export default async function PaketPage({ searchParams }: PaketPageProps) {
 
           {/* Package Grid */}
           {packages.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2  lg:grid-cols-3 gap-6">
               {packages.map((pkg: TourPackage) => (
                 <Card
                   key={pkg.id}

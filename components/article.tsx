@@ -5,8 +5,7 @@ import Image from "next/image";
 import { usePosts } from "@/hooks/use-article";
 
 const IMAGE_BASE_URL =
-  process.env.NEXT_PUBLIC_STORAGE_URL ||
-  "https://api-travel.elhusain.travel";
+  process.env.NEXT_PUBLIC_STORAGE_URL || "https://api-travel.elhusain.travel";
 
 export default function Article() {
   const { posts, isLoading } = usePosts({ limit: 3 });
@@ -39,7 +38,7 @@ export default function Article() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:px-20">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:px-20">
           {isLoading
             ? Array.from({ length: 3 }).map((_, index) => (
                 <div

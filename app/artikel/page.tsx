@@ -14,7 +14,8 @@ import PostGridSkeleton from "@/components/artikel/post-grid-skeleton";
 import CtaButtons from "@/components/paket/cta-section"; // Bisa pakai CTA yang sama
 
 // ----- Definisikan Tipe & Helper -----
-const API_HOST = process.env.API_HOST || "https://api-travel.elhusain.travel/api";
+const API_HOST =
+  process.env.API_HOST || "https://api-travel.elhusain.travel/api";
 const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_STORAGE_URL || "";
 
 interface Post {
@@ -66,7 +67,7 @@ async function PostGrid({ params }: { params: URLSearchParams }) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
       {posts.map((post: Post) => (
         <Card
           key={post.id}
